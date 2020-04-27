@@ -16,10 +16,6 @@ function App() {
       <div className="App">
         <Header />
 
-        <main>
-          <UserDashboard />
-        </main>
-
         <Switch>
           <Route exact path="/about">
             <About />
