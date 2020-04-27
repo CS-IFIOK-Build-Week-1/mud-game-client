@@ -27,6 +27,10 @@ const Nav = styled.nav`
     padding-left: 1em;
     text-decoration: none;
     color: #08E152;
+
+    &:hover {
+      color: #FAFF13;
+    }
   }
 `
 

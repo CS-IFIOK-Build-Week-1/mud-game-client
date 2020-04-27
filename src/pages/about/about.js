@@ -5,7 +5,7 @@ import PageTitle from '../../components/page-title'
 function About() {
   return (
     <div>
-      <PageTitle title="About Movr" />
+      <PageTitle title="About" />
     </div>
   )
 }
