@@ -1,0 +1,13 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Rokkitt', serif;
+  background: #1a1a1a;
+  color: #fff;
+}
+
+.App {
+  margin: 0 3em;
+}
