@@ -9,7 +9,7 @@ const TitleDiv = styled.div`
 
   h3 {
     font-weight: 600;
-    font-size: 2em;
+    font-size: 1.5em;
   }
 `
 
