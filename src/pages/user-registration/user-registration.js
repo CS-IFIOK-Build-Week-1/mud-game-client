@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { withFormik } from 'formik'
+import { withFormik, Form, Field } from 'formik'
 
 import PageTitle from '../../components/page-title'
 
@@ -59,6 +59,7 @@ const FormCon = styled.div`
     button {
       margin: 0;
       margin-top: 1em;
+      margin-bottom: 1em;
       height: 50px;
       background: #FAFF13;
       color: #191919;
@@ -76,42 +77,44 @@ const FormCon = styled.div`
   }
 `;
 
-const initialForm = {
-  username: "",
-  email: "",
-  password: ""
-}
-
-const UserRegistration = () => {
+const UserRegistration = props => {
+  console.log(props)
   return (
     <PageCon>
       <PageTitle title="Register" />
 
       <FormCon>
-        <form className="regForm">
-          <input
+        <Form className="regForm">
+          <Field
             type="text"
             name="username"
             placeholder="Username"
           />
-          <input
+          <Field
             type="email"
             name="email"
             placeholder="Email"
           />
-          <input
+          <Field
             type="password"
             name="password"
             placeholder="Password"
           />
-          <button>Register</button>
-        </form>
+          <button type="submit">Register</button>
+        </Form>
       </FormCon>
     </PageCon>
   )
 }
 
 const UserRegFormik = withFormik({
+  mapPropsToValues(...tools) {
+    return {
+      username: "",
+      email: "",
+      password: "",
+    };
+  }
 
 })(UserRegistration)
 
