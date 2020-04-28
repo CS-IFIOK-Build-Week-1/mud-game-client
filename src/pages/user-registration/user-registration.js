@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import * as Yup from 'yup';
 import Axios from 'axios'
 import { withFormik, Form, ErrorMessage } from 'formik'
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 
 import PageTitle from '../../components/page-title'
 import UserFormInput from '../../components/user-form-input'
@@ -87,7 +87,7 @@ const UserRegFormik = withFormik({
       .then(res => {
         console.log(res)
         tools.resetForm()
-        
+
         // return res.data
       })
       .catch(err => {
@@ -96,5 +96,6 @@ const UserRegFormik = withFormik({
   }
 
 })(UserRegistration)
+
 
 export default UserRegFormik;
