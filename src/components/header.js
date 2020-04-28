@@ -9,6 +9,9 @@ const HeaderCon = styled.header`
   justify-content: space-between;
   padding-top: 2em;
   padding-bottom: 2em;
+  font-family: 'Rokkitt', serif;
+  letter-spacing: 0.12em;
+  font-size: 1.1em;
 `
 
 const BrandLogo = styled.div`
