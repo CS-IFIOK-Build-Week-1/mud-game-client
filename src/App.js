@@ -6,6 +6,7 @@ import About from './pages/about/about'
 import UserLogin from './pages/user-login/user-login'
 import UserRegistration from './pages/user-registration/user-registration'
 import UserDashboard from './pages/dashboard/dashboard'
+import LandingPage from './pages/landing-page/landing-page'
 
 import './App.css'
 
@@ -17,6 +18,11 @@ function App() {
         <Header />
 
         <Switch>
+
+          <Route exact path="/">
+            <LandingPage />
+          </Route>
+
           <Route exact path="/about">
             <About />
           </Route>
