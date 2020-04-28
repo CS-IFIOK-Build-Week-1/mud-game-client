@@ -2,6 +2,7 @@ import React from 'react'
 import * as Yup from 'yup'
 import Axios from 'axios'
 import { withFormik, Form, ErrorMessage } from 'formik'
+import { compose } from 'redux'
 import { Link, withRouter } from 'react-router-dom'
 
 import PageTitle from '../../components/page-title'
@@ -10,7 +11,7 @@ import StyledButton from '../../components/Button'
 
 import * as styles from '../../components/form-styles'
 
-const UserLogin = () => {
+const UserLogin = props => {
   return (
     <div>
       <PageTitle title="Login" />
@@ -42,31 +43,33 @@ const UserLogin = () => {
   )
 }
 
-const UserLogFormik = withFormik({
-  mapPropsToValues() {
-    return {
-      username: "",
-      password: ""
-    };
-  },
+const UserLogFormik = compose(
+  withRouter,
+  withFormik({
+    mapPropsToValues() {
+      return {
+        username: "",
+        password: ""
+      };
+    },
 
-  validationSchema: Yup.object().shape({
-    username: Yup.string().min(3).required("Please enter a username!"),
-    password: Yup.string().min(8).required("Please enter a password!")
-  }),
+    validationSchema: Yup.object().shape({
+      username: Yup.string().min(3).required("Please enter a username!"),
+      password: Yup.string().min(8).required("Please enter a password!")
+    }),
 
-  handleSubmit(values, tools) {
-    console.log("tools", tools)
-    Axios.post("https://calm-headland-63030.herokuapp.com/api/login/", values)
-      .then(res => {
-        console.log(res)
-        tools.resetForm()
-      })
-      .catch(err => {
-        // return err
-      })
-  }
-
-})(UserLogin)
+    handleSubmit(values, tools) {
+      Axios.post("https://calm-headland-63030.herokuapp.com/api/login/", values)
+        .then(res => {
+          localStorage.setItem("key", res.data.key)
+          tools.props.history.push("/dashboard")
+          tools.resetForm()
+        })
+        .catch(err => {
+          return err.message
+        })
+    },
+  })
+)(UserLogin)
 
 export default UserLogFormik;
