@@ -1,7 +1,8 @@
 import React from 'react'
 import * as Yup from 'yup'
+import Axios from 'axios'
 import { withFormik, Form, ErrorMessage } from 'formik'
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 
 import PageTitle from '../../components/page-title'
 import UserFormInput from '../../components/user-form-input'
@@ -51,19 +52,19 @@ const UserLogFormik = withFormik({
 
   validationSchema: Yup.object().shape({
     username: Yup.string().min(3).required("Please enter a username!"),
-    password: Yup.string().min(5).required("Please enter a password!")
+    password: Yup.string().min(8).required("Please enter a password!")
   }),
 
   handleSubmit(values, tools) {
     console.log("tools", tools)
-    // Axios.post("https://reqres.in/api/login", values)
-    //   .then(res => {
-    //     // return res.data
-    //     tools.resetForm()
-    //   })
-    //   .catch(err => {
-    //     // return err
-    //   })
+    Axios.post("https://calm-headland-63030.herokuapp.com/api/login/", values)
+      .then(res => {
+        console.log(res)
+        tools.resetForm()
+      })
+      .catch(err => {
+        // return err
+      })
   }
 
 })(UserLogin)
