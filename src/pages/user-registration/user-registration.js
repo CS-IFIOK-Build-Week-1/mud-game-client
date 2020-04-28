@@ -18,6 +18,7 @@ const PageCon = styled.div`
 `;
 
 const UserRegistration = props => {
+  console.log(props)
   return (
     <PageCon>
       <PageTitle title="Register" />
@@ -31,11 +32,25 @@ const UserRegistration = props => {
             placeholder="Username"
           />
 
-          <ErrorMessage name="password" render={msg => <div className="error_message">{msg}</div>} />
+          <ErrorMessage name="email" render={msg => <div className="error_message">{msg}</div>} />
+          <UserFormInput
+            type="email"
+            name="email"
+            placeholder="Email"
+          />
+
+          <ErrorMessage name="password1" render={msg => <div className="error_message">{msg}</div>} />
           <UserFormInput
             type="password"
-            name="password"
+            name="password1"
             placeholder="Password"
+          />
+
+          <ErrorMessage name="password2" render={msg => <div className="error_message">{msg}</div>} />
+          <UserFormInput
+            type="password"
+            name="password2"
+            placeholder="Confirm password"
           />
 
           <StyledButton buttonName="Register" />
@@ -53,21 +68,27 @@ const UserRegFormik = withFormik({
   mapPropsToValues() {
     return {
       username: "",
-      password: ""
+      email: "",
+      password1: "",
+      password2: "",
     };
   },
 
   validationSchema: Yup.object().shape({
     username: Yup.string().min(3).required("Please enter a username!"),
-    password: Yup.string().min(5).required("Please enter a password!")
+    email: Yup.string().email("Invalid email").required("Please enter an email!"),
+    password1: Yup.string().min(8).required("Please enter a password!"),
+    password2: Yup.string().oneOf([Yup.ref('password1'), null], 'Passwords must match')
   }),
 
   handleSubmit(values, tools) {
     console.log("tools", tools)
-    Axios.post("https://reqres.in/api/register", values)
+    Axios.post("https://calm-headland-63030.herokuapp.com/api/registration/", values)
       .then(res => {
-        return res.data
+        console.log(res)
         tools.resetForm()
+        
+        // return res.data
       })
       .catch(err => {
         return err.message
