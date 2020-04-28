@@ -1,7 +1,7 @@
 import React from 'react'
 
-import Player from '../../components/player/player'
 import { Redirect } from 'react-router-dom'
+import MapCanvas from '../../components/map-canvas'
 
 const UserDashboard = props => {
 
@@ -11,9 +11,7 @@ const UserDashboard = props => {
 
   return (
     <div>
-      <h3>Game Dashboard</h3>
-
-      <Player />
+      <MapCanvas />
     </div>
   )
 }
