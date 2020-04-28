@@ -61,12 +61,12 @@ const UserLogFormik = compose(
     handleSubmit(values, tools) {
       Axios.post("https://calm-headland-63030.herokuapp.com/api/login/", values)
         .then(res => {
-          localStorage.setItem("key", res.data.key)
+          localStorage.setItem("token", res.data.key)
           tools.props.history.push("/dashboard")
           tools.resetForm()
         })
         .catch(err => {
-          return err.message
+          alert(err.message)
         })
     },
   })

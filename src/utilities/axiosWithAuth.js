@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const axiosWithAuth = () => {
-  const key = localStorage.getItem('key');
+  const key = localStorage.getItem('token');
 
   const axiosInstance = axios.create({
     headers: {
