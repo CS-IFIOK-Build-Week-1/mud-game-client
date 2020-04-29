@@ -11,9 +11,8 @@ const ControlCon = styled.div`
   flex-direction: column;
   justify-content: space-between;
   border: 4px solid #08e152;
-  width: 400px;
+  width: 350px;
   height: 200px;
-  margin-top: 2em;
   overflow: hidden;
 
   img {
@@ -24,12 +23,6 @@ const ControlCon = styled.div`
 `;
 
 const Controls = () => {
-  // useEffect(() => {
-  //   moveWest();
-  //   return () => {
-  //     cleanup
-  //   }
-  // }, [])
 
   const moveWest = (evt) => {
     console.log('moved West!');

@@ -5,22 +5,21 @@ import { connect } from 'react-redux';
 import playerWalk from '../../assets/player_walk.png';
 
 import actionCreators from './action-creators';
+import handleMovement from '../controls/movement';
 
 const Player = ({ position }) => {
   return (
-    <div>
-      <div
-        style={{
-          position: 'relative',
-          top: position[1],
-          left: position[0],
-          background: `url('${playerWalk}')`,
-          backgroundPosition: '0 0',
-          width: '40px',
-          height: '40px'
-        }}
-      />
-    </div>
+    <div
+      style={{
+        position: 'absolute',
+        top: position[1],
+        left: position[0],
+        background: `url('${playerWalk}')`,
+        backgroundPosition: '0 0',
+        width: '40px',
+        height: '40px'
+      }}
+    />
   );
 };
 
@@ -30,7 +29,7 @@ Player.propTypes = {
 };
 
 Player.defaultProps = {
-  position: undefined,
+  position: [0, 0],
 };
 
 function mapStateToProps(state) {
@@ -39,4 +38,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, actionCreators)(Player);
+export default connect(mapStateToProps, actionCreators)(handleMovement(Player));
