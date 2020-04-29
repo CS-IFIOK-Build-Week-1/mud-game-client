@@ -1,67 +1,51 @@
-
-// import React from 'react';
-
-// import useEvent from '../../utilities/hooks/useEvent';
-
 import store from '../../redux/store';
-import { SPRITE_SIZE } from '../../utilities/constant';
+import * as types from '../player/action-types';
 
 function handleMovement(player) {
 
-  const getNewPosition = (direction) => {
+  function getnewPosition(direction) {
     const oldPosition = store.getState().player.position;
     switch (direction) {
-      case 'WEST':
-        return [oldPosition[0] - SPRITE_SIZE, oldPosition[1]];
-      case 'EAST':
-        return [oldPosition[0] + SPRITE_SIZE, oldPosition[1]];
-      case 'NORTH':
-        return [oldPosition[0], oldPosition[1] - SPRITE_SIZE];
-      case 'SOUTH':
-        return [oldPosition[0], oldPosition[1] + SPRITE_SIZE];
+      case types.WEST:
+        return [oldPosition[0] - types.SPRITE_SIZE, oldPosition[1]];
+      case types.EAST:
+        return [oldPosition[0] + types.SPRITE_SIZE, oldPosition[1]];
+      case types.NORTH:
+        return [oldPosition[0], oldPosition[1] - types.SPRITE_SIZE];
+      case types.SOUTH:
+        return [oldPosition[0], oldPosition[1] + types.SPRITE_SIZE];
       default:
-        return [oldPosition[0], oldPosition[1]];
+        return oldPosition;
     }
   };
 
-
-  const dispatchDirection = (direction) => {
+  const dispatchMove = (direction) => {
     store.dispatch({
-      type: 'MOVE_PLAYER',
-      payload: {
-        position: getNewPosition(direction)
-      }
+      type: types.MOVE_PLAYER,
+      payload: getnewPosition(direction)
     });
   };
 
-  const handleKeyPress = (evt) => {
+  const handleKeyDown = (evt) => {
     evt.preventDefault();
 
     switch (evt.keyCode) {
       case 37:
-        return dispatchDirection("West");
+        return dispatchMove(types.WEST);
       case 38:
-        return dispatchDirection("North");
+        return dispatchMove(types.NORTH);
       case 39:
-        return dispatchDirection("East");
+        return dispatchMove(types.EAST);
       case 40:
-        return dispatchDirection("South");
+        return dispatchMove(types.SOUTH);
       default:
         return console.log(evt.keyCode);
     }
   };
 
   window.addEventListener('keydown', (evt) => {
-    handleKeyPress(evt);
+    handleKeyDown(evt);
   });
-
-  // const handleKeyPress = (evt) => {
-  //   if (evt.key === ' ') {
-  //     console.log('You pressed the space bar!');
-  //   }
-  // };
-
-  // useEvent('keyup', handleKeyPress);
 
   return (player);
 }

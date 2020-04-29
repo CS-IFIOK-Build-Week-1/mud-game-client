@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 
 import playerWalk from '../../assets/player_walk.png';
 
-import actionCreators from './action-creators';
 import handleMovement from '../controls/movement';
 
 const Player = ({ position }) => {
@@ -38,4 +37,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, actionCreators)(handleMovement(Player));
+export default connect(mapStateToProps)(handleMovement(Player));

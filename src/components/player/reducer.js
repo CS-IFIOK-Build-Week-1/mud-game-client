@@ -1,18 +1,16 @@
-// import * as types from './action-types';
+import * as types from './action-types';
 
 const initialState = {
   position: [0, 0],
 };
 
-const playerReducer = (state = initialState, action) => {
+export default function playerReducer(state = initialState, action) {
   switch (action.type) {
-    case 'MOVE_PLAYER':
+    case types.MOVE_PLAYER:
       return {
-        ...action.payload,
+        position: action.payload
       };
     default:
       return state;
   }
 };
-
-export default playerReducer;
