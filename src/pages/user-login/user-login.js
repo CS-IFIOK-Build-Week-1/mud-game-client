@@ -1,16 +1,18 @@
-import React from 'react'
-import * as Yup from 'yup'
-import Axios from 'axios'
-import { withFormik, Form, ErrorMessage } from 'formik'
-import { compose } from 'redux'
-import { Link, withRouter } from 'react-router-dom'
+/* eslint-disable react/no-unescaped-entities */
+import React from 'react';
+import * as Yup from 'yup';
+import Axios from 'axios';
+import { withFormik, Form, ErrorMessage } from 'formik';
+import { compose } from 'redux';
+import { Link, withRouter } from 'react-router-dom';
 
-import PageTitle from '../../components/page-title'
-import UserFormInput from '../../components/user-form-input'
-import StyledButton from '../../components/Button'
+import PageTitle from '../../components/page-title';
+import UserFormInput from '../../components/user-form-input';
+import StyledButton from '../../components/Button';
 
-import * as styles from '../../components/form-styles'
+import * as styles from '../../components/form-styles';
 
+// eslint-disable-next-line no-unused-vars
 const UserLogin = props => {
   return (
     <div>
@@ -40,8 +42,8 @@ const UserLogin = props => {
         </Form>
       </styles.FormCon>
     </div>
-  )
-}
+  );
+};
 
 const UserLogFormik = compose(
   withRouter,
@@ -61,15 +63,15 @@ const UserLogFormik = compose(
     handleSubmit(values, tools) {
       Axios.post("https://calm-headland-63030.herokuapp.com/api/login/", values)
         .then(res => {
-          localStorage.setItem("token", res.data.key)
-          tools.props.history.push("/dashboard")
-          tools.resetForm()
+          localStorage.setItem("token", res.data.key);
+          tools.props.history.push("/dashboard");
+          tools.resetForm();
         })
         .catch(err => {
-          alert(err.message)
-        })
+          alert(err.message);
+        });
     },
   })
-)(UserLogin)
+)(UserLogin);
 
 export default UserLogFormik;

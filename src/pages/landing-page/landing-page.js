@@ -1,8 +1,8 @@
-import React from 'react'
+import React from 'react';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
-import Button from '../../components/Button'
-import styled from 'styled-components'
+import Button from '../../components/Button';
 
 const LandingCon = styled.div`
   display: flex;
@@ -41,7 +41,7 @@ const LandingPage = () => {
       </div>
 
     </LandingCon>
-  )
-}
+  );
+};
 
-export default LandingPage
+export default LandingPage;

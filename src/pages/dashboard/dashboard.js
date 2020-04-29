@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react'
-import styled from 'styled-components'
-import { Redirect } from 'react-router-dom'
+import React from 'react';
+import styled from 'styled-components';
+import { Redirect } from 'react-router-dom';
 
-import MapCanvas from '../../components/map-canvas'
-import Controls from '../../components/controls/controls'
+import MapCanvas from '../../components/map-canvas';
+import Controls from '../../components/controls/controls';
 
 
 const DashCon = styled.div`
@@ -25,10 +25,10 @@ const GameInfoCon = styled.div`
 `;
 
 
-const UserDashboard = props => {
+const UserDashboard = () => {
 
   if (!localStorage.getItem('token')) {
-    return <Redirect to="/login" />
+    return <Redirect to="/login" />;
   }
 
 
@@ -44,7 +44,7 @@ const UserDashboard = props => {
         <Controls />
       </RightCon>
     </DashCon>
-  )
-}
+  );
+};
 
-export default UserDashboard
+export default UserDashboard;

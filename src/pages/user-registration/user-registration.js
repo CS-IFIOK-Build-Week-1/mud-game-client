@@ -1,16 +1,16 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
 import * as Yup from 'yup';
-import Axios from 'axios'
+import Axios from 'axios';
 import { compose } from 'redux';
-import { withFormik, Form, ErrorMessage } from 'formik'
-import { Link, withRouter } from 'react-router-dom'
+import { withFormik, Form, ErrorMessage } from 'formik';
+import { Link, withRouter } from 'react-router-dom';
 
-import PageTitle from '../../components/page-title'
-import UserFormInput from '../../components/user-form-input'
-import StyledButton from '../../components/Button'
+import PageTitle from '../../components/page-title';
+import UserFormInput from '../../components/user-form-input';
+import StyledButton from '../../components/Button';
 
-import * as styles from '../../components/form-styles'
+import * as styles from '../../components/form-styles';
 
 
 const PageCon = styled.div`
@@ -18,6 +18,7 @@ const PageCon = styled.div`
   flex-direction: column;
 `;
 
+// eslint-disable-next-line no-unused-vars
 const UserRegistration = props => {
   return (
     <PageCon>
@@ -54,8 +55,8 @@ const UserRegistration = props => {
         </Form>
       </styles.FormCon>
     </PageCon>
-  )
-}
+  );
+};
 
 const UserRegFormik = compose(
   withRouter,
@@ -76,16 +77,16 @@ const UserRegFormik = compose(
 
     handleSubmit(values, tools) {
       Axios.post("https://calm-headland-63030.herokuapp.com/api/registration/", values)
-        .then(res => {
-          tools.props.history.push("/login")
-          tools.resetForm()
+        .then(() => {
+          tools.props.history.push("/login");
+          tools.resetForm();
         })
         .catch(err => {
-          return err.message
-        })
+          return err.message;
+        });
     },
   })
-)(UserRegistration)
+)(UserRegistration);
 
 
 export default UserRegFormik;

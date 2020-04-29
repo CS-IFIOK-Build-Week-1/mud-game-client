@@ -1,14 +1,14 @@
-import React from 'react'
-import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
+import React from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-import Header from './components/header'
-import About from './pages/about/about'
-import UserLogin from './pages/user-login/user-login'
-import UserRegistration from './pages/user-registration/user-registration'
-import UserDashboard from './pages/dashboard/dashboard'
-import LandingPage from './pages/landing-page/landing-page'
+import Header from './components/header';
+import About from './pages/about/about';
+import UserLogin from './pages/user-login/user-login';
+import UserRegistration from './pages/user-registration/user-registration';
+import UserDashboard from './pages/dashboard/dashboard';
+import LandingPage from './pages/landing-page/landing-page';
 
-import './App.css'
+import './App.css';
 
 
 function App() {

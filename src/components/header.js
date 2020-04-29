@@ -1,8 +1,8 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import styled from 'styled-components'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
-import Movr from '../assets/movr-logo.png'
+import Movr from '../assets/movr-logo.png';
 
 const HeaderCon = styled.header`
   display: flex;
@@ -12,7 +12,7 @@ const HeaderCon = styled.header`
   font-family: 'Rokkitt', serif;
   letter-spacing: 0.12em;
   font-size: 1.1em;
-`
+`;
 
 const BrandLogo = styled.div`
   width: 100px;
@@ -21,7 +21,7 @@ const BrandLogo = styled.div`
     width: 100%;
     height: auto;
   }
-`
+`;
 
 const Nav = styled.nav`
   font-size: 1.25em;
@@ -35,7 +35,7 @@ const Nav = styled.nav`
       color: #FAFF13;
     }
   }
-`
+`;
 
 const Header = () => {
   return (
@@ -52,7 +52,7 @@ const Header = () => {
         <Link to="/register">Register</Link>
       </Nav>
     </HeaderCon>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

@@ -1,14 +1,14 @@
-import * as types from './action-types'
+// import * as types from './action-types';
 
 const initialState = {
   position: [0, 0],
-}
+};
 
 const playerReducer = (state = initialState, action) => {
   switch (action.type) {
     default:
-      return state
+      return state;
   }
-}
+};
 
-export default playerReducer
+export default playerReducer;

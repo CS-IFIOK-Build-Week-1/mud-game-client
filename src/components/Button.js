@@ -1,5 +1,6 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
 const StyledButton = styled.button`
   width: 400px;
@@ -23,7 +24,15 @@ const StyledButton = styled.button`
 const Button = ({ buttonName }) => {
   return (
     <StyledButton type="submit">{buttonName}</StyledButton>
-  )
-}
+  );
+};
 
-export default Button
+Button.propTypes = {
+  buttonName: PropTypes.string,
+};
+
+Button.defaultProps = {
+  buttonName: undefined,
+};
+
+export default Button;

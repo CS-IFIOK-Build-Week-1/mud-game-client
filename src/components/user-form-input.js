@@ -1,5 +1,6 @@
-import React from 'react'
-import { Field } from 'formik'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Field } from 'formik';
 
 const UserFormInput = ({ type, name, placeholder }) => {
   return (
@@ -10,7 +11,19 @@ const UserFormInput = ({ type, name, placeholder }) => {
         placeholder={placeholder}
       />
     </div>
-  )
-}
+  );
+};
 
-export default UserFormInput
+UserFormInput.propTypes = {
+  type: PropTypes.string,
+  name: PropTypes.string,
+  placeholder: PropTypes.string,
+};
+
+UserFormInput.defaultProps = {
+  type: undefined,
+  name: undefined,
+  placeholder: undefined,
+};
+
+export default UserFormInput;

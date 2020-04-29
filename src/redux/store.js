@@ -1,11 +1,11 @@
-import { createStore, combineReducers, compose, applyMiddleware } from 'redux'
-import thunk from 'redux-thunk'
+import { createStore, combineReducers, compose, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
 
-import playerReducer from '../components/player/reducer'
+import playerReducer from '../components/player/reducer';
 
 const rootReducer = combineReducers({
   player: playerReducer,
-})
+});
 
 const store = createStore(
   rootReducer,
@@ -14,6 +14,6 @@ const store = createStore(
     applyMiddleware(thunk),
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
   )
-)
+);
 
-export default store
+export default store;

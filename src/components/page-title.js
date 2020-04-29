@@ -1,6 +1,6 @@
-import React from 'react'
-
-import styled from 'styled-components'
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
 const TitleDiv = styled.div`
   display: flex;
@@ -13,7 +13,7 @@ const TitleDiv = styled.div`
     font-weight: 500;
     font-size: 1.5em;
   }
-`
+`;
 
 const PageTitle = ({ title }) => {
   return (
@@ -22,7 +22,15 @@ const PageTitle = ({ title }) => {
         {title}
       </h3>
     </TitleDiv>
-  )
-}
+  );
+};
 
-export default PageTitle
+PageTitle.propTypes = {
+  title: PropTypes.string,
+};
+
+PageTitle.defaultProps = {
+  title: undefined,
+};
+
+export default PageTitle;

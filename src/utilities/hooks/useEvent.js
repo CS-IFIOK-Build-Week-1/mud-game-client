@@ -1,15 +1,15 @@
-import { useEffect } from 'react'
+import { useEffect } from 'react';
 
-export function useEvent(event, handler) {
+export default function useEvent(event, handler) {
 
   useEffect(() => {
 
     // To initiate the event
-    global.addEventListener(event, handler)
+    global.addEventListener(event, handler);
 
     // To cleanup the event every time we re-render the component
     return () => {
       global.removeEventListener(event, handler);
-    }
-  })
+    };
+  });
 }

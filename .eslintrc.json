@@ -21,9 +21,6 @@
   "rules": {
     "semi": 2,
     "annoying-rule-we-want-disabled": 0,
-    "prettier/prettier": ["error"],
-    // "react/jsx-filename-extension": [0],
-    // "import/extensions": "off"
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
   }
 }
