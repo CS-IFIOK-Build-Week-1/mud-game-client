@@ -19,10 +19,17 @@ function handleMovement(player) {
     }
   };
 
-  const dispatchMove = (direction) => {
+  function observeBoundaries(oldPos, newPos) {
+    return (newPos[0] >= 0 && newPos[0] <= types.MAP_WIDTH - types.SPRITE_SIZE) &&
+      (newPos[1] >= 0 && newPos[1] <= types.MAP_HEIGHT - types.SPRITE_SIZE)
+      ? newPos : oldPos;
+  }
+
+  function dispatchMove(direction) {
+    const oldPos = store.getState().player.position;
     store.dispatch({
       type: types.MOVE_PLAYER,
-      payload: getnewPosition(direction)
+      payload: observeBoundaries(oldPos, getnewPosition(direction))
     });
   };
 
@@ -39,7 +46,7 @@ function handleMovement(player) {
       case 40:
         return dispatchMove(types.SOUTH);
       default:
-        return console.log(evt.keyCode);
+        return evt.keyCode;
     }
   };
 

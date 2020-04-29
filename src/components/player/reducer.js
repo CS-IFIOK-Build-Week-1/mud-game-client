@@ -8,7 +8,7 @@ export default function playerReducer(state = initialState, action) {
   switch (action.type) {
     case types.MOVE_PLAYER:
       return {
-        position: action.payload
+        position: action.payload,
       };
     default:
       return state;
