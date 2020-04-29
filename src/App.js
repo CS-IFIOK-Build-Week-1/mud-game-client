@@ -18,7 +18,6 @@ function App() {
         <Header />
 
         <Switch>
-
           <Route exact path="/">
             <LandingPage />
           </Route>

@@ -13,7 +13,7 @@ const Player = (props) => {
           position: 'relative',
           top: props.position[1],
           left: props.position[0],
-          background: `url(${player_walk})`,
+          background: `url('${player_walk}')`,
           backgroundPosition: '0 0',
           width: '40px',
           height: '40px'

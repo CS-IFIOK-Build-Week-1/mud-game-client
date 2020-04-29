@@ -27,6 +27,13 @@ const ControlCon = styled.div`
 
 const Controls = props => {
 
+  // useEffect(() => {
+  //   moveWest();
+  //   return () => {
+  //     cleanup
+  //   }
+  // }, [])
+
   const moveWest = evt => {
     console.log("moved West!")
   }

@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
 
 import Player from '../components/player/player'
+import { useEvent } from '../utilities/hooks/useEvent'
 
-const CanvasCon = styled.canvas`
+const CanvasCon = styled.div`
+  position: relative;
   border: 4px solid #08E152;
   width: 850px;
   height: auto;
@@ -11,9 +13,16 @@ const CanvasCon = styled.canvas`
 
 function MapCanvas(props) {
 
+  const handleKeyPress = evt => {
+    if (evt.key === ' ') {
+      console.log("You pressed the space bar!")
+    }
+  }
+
+  useEvent('keyup', handleKeyPress)
+
   return (
     <CanvasCon>
-      <p>THe Canvas</p>
       <Player />
     </CanvasCon>
   )

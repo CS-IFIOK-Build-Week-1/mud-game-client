@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import { Redirect } from 'react-router-dom'
 
@@ -30,6 +30,7 @@ const UserDashboard = props => {
   if (!localStorage.getItem('token')) {
     return <Redirect to="/login" />
   }
+
 
   return (
     <DashCon>
