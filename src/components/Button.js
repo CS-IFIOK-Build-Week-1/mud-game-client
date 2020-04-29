@@ -22,9 +22,7 @@ const StyledButton = styled.button`
 
 const Button = ({ buttonName }) => {
   return (
-    <div>
-      <StyledButton type="submit">{buttonName}</StyledButton>
-    </div>
+    <StyledButton type="submit">{buttonName}</StyledButton>
   )
 }
 

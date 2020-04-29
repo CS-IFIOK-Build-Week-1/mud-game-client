@@ -3,6 +3,9 @@ import styled from 'styled-components'
 export const FormCon = styled.div`
   display:flex;
   justify-content: center;
+  font-family: 'Rokkitt', serif;
+  letter-spacing: 0.12em;
+  font-size: 1.2em;
   
   .regForm {
     display: flex;
