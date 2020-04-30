@@ -21,17 +21,18 @@ function MapTile({ tile }) {
       style={{
         height: types.SPRITE_SIZE,
         width: types.SPRITE_SIZE,
-        margin: 0
+        display: 'inline-flex',
+        backgroundColor: '#143f22',
       }}
-    >
-      {tile}
-    </div>
+    />
   );
 };
 
 function MapRow({ tiles }) {
   return (
-    <div className="row">
+    <div className="row" style={{
+      height: '40px',
+    }}>
       {tiles.map(tile => <MapTile tile={tile} />)}
     </div>
   );
@@ -60,8 +61,10 @@ export default MapCanvas;
 
 const CanvasCon = styled.div`
   position: relative;
-  border: 4px solid #166e33;
+  /* border: 4px solid #166e33; */
   background-color: #15d856;
   width: 800px;
   height: 400px;
+  margin: 0;
+  padding: 0;
 `;
