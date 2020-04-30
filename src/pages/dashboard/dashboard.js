@@ -20,7 +20,7 @@ const RightCon = styled.div`
 const GameInfoCon = styled.div`
   border: 4px solid #08E152;
   width: 350px;
-  height: 280px;
+  height: 230px;
 `;
 
 

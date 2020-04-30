@@ -2,15 +2,16 @@ import React from 'react';
 
 import MapCanvas from "../map/map-canvas";
 import Player from "../player/player";
+import { tiles } from '../../data/maps/1';
 
 function World(props) {
   return (
     <div style={{
       position: 'relative',
       width: '800px',
-      height: '500px'
+      height: '400px'
     }}>
-      <MapCanvas />
+      <MapCanvas tiles={tiles} />
       <Player />
     </div>
   );

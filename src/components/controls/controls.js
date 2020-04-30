@@ -10,10 +10,11 @@ const ControlCon = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border: 4px solid #08e152;
-  width: 350px;
-  height: 200px;
+  /* border: 4px solid #08e152; */
+  width: 250px;
+  height: 150px;
   overflow: hidden;
+  margin: 0 auto;
 
   img {
     &:hover {
@@ -46,7 +47,6 @@ const Controls = () => {
         style={{
           display: 'flex',
           justifyContent: 'center',
-          marginTop: '1em',
         }}
       >
         <img src={north} alt="north" onClick={moveNorth} />
@@ -56,8 +56,8 @@ const Controls = () => {
         style={{
           display: 'flex',
           justifyContent: 'space-between',
-          marginRight: '6em',
-          marginLeft: '6em',
+          marginRight: '2em',
+          marginLeft: '2em',
         }}
       >
         <img src={west} alt="west" onClick={moveWest} />
@@ -68,7 +68,6 @@ const Controls = () => {
         style={{
           display: 'flex',
           justifyContent: 'center',
-          marginBottom: '1em',
         }}
       >
         <img src={south} alt="south" onClick={moveSouth} />

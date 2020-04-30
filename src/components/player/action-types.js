@@ -7,5 +7,5 @@ export const EAST = 'EAST';
 export const NORTH = 'NORTH';
 export const SOUTH = 'SOUTH';
 
-export const MAP_HEIGHT = SPRITE_SIZE * 12.5;
+export const MAP_HEIGHT = SPRITE_SIZE * 10;
 export const MAP_WIDTH = SPRITE_SIZE * 20;
