@@ -1,10 +1,9 @@
-import React from 'react'
-import styled from 'styled-components'
-import { Redirect } from 'react-router-dom'
+import React from 'react';
+import styled from 'styled-components';
+import { Redirect } from 'react-router-dom';
 
-import MapCanvas from '../../components/map-canvas'
-import Controls from '../../components/controls/controls'
-
+import MapCanvas from '../../components/map-canvas';
+import Controls from '../../components/controls/controls';
 
 const DashCon = styled.div`
   display: flex;
@@ -19,16 +18,14 @@ const RightCon = styled.div`
 `;
 
 const GameInfoCon = styled.div`
-  border: 4px solid #08E152;
+  border: 4px solid #08e152;
   width: 400px;
   height: 280px;
 `;
 
-
-const UserDashboard = props => {
-
+const UserDashboard = (props) => {
   if (!localStorage.getItem('token')) {
-    return <Redirect to="/login" />
+    return <Redirect to="/login" />;
   }
 
   return (
@@ -43,7 +40,7 @@ const UserDashboard = props => {
         <Controls />
       </RightCon>
     </DashCon>
-  )
-}
+  );
+};
 
-export default UserDashboard
+export default UserDashboard;
