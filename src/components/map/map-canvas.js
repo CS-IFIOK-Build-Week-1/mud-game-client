@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
 
 import * as types from '../player/action-types';
 
@@ -11,6 +12,10 @@ function getTileSprite(type) {
       return 'grass';
     case 2:
       return 'room';
+    case 5:
+      return 'rock';
+    default:
+      return 'grass';
   }
 }
 
@@ -22,7 +27,6 @@ function MapTile({ tile }) {
         height: types.SPRITE_SIZE,
         width: types.SPRITE_SIZE,
         display: 'inline-flex',
-        backgroundColor: '#143f22',
       }}
     />
   );
@@ -40,10 +44,11 @@ function MapRow({ tiles }) {
 
 
 function MapCanvas({ tiles }) {
+  // console.log(tiles)
 
   return (
     <CanvasCon>
-      {tiles.map(row => <MapRow tiles={row} />)}
+      {tiles && tiles.map(row => <MapRow tiles={row} />)}
     </CanvasCon>
   );
 }
@@ -56,8 +61,14 @@ function MapCanvas({ tiles }) {
 //   tiles: undefined,
 // };
 
+function mapStateToProps(state) {
+  return {
+    tiles: state.map.tiles
+  };
+};
 
-export default MapCanvas;
+
+export default connect(mapStateToProps)(MapCanvas);
 
 const CanvasCon = styled.div`
   position: relative;

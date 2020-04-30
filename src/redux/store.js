@@ -2,9 +2,11 @@ import { createStore, combineReducers, compose, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 
 import playerReducer from '../components/player/reducer';
+import mapReducer from '../components/map/reducer';
 
 const rootReducer = combineReducers({
   player: playerReducer,
+  map: mapReducer,
 });
 
 const store = createStore(
