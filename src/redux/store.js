@@ -4,7 +4,7 @@ import thunk from 'redux-thunk'
 import playerReducer from '../components/player/reducer'
 
 const rootReducer = combineReducers({
-  player: playerReducer,
+  playerState: playerReducer,
 })
 
 const store = createStore(
