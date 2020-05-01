@@ -1,8 +1,9 @@
 import React from "react";
 import { TilingSprite } from "react-pixi-fiber";
 import { textures, TILE_HEIGHT, TILE_WIDTH } from "./constants";
+import * as PIXI from "pixi.js";
 
-export default function Room({ room, x, y }) {
+export default function Room(parent, room, x, y) {
   const children = [];
   for (let i = 0; i < 3; i++) {
     for (let j = 0; j < 3; j++) {
@@ -68,18 +69,22 @@ export default function Room({ room, x, y }) {
           }
         }
       }
-      nextTile = (
-        <TilingSprite
-          key={`${i}${j}`}
+      nextTile = new PIXI.TilingSprite(
+        textures[tileIndex],
+        TILE_WIDTH,
+        TILE_HEIGHT
+      );
+      nextTile.x = x + j * TILE_WIDTH;
+      nextTile.y = y + i * TILE_WIDTH;
+      /*           key={`${i}${j}`}
           texture={textures[tileIndex]}
           x={x + j * TILE_WIDTH}
           y={y + i * TILE_HEIGHT}
-          height = {TILE_HEIGHT}
-          width = {TILE_WIDTH}
+          height={TILE_HEIGHT}
+          width={TILE_WIDTH}
         />
-      );
-      children.push(nextTile);
+      ) */
+      parent.addChild(nextTile);
     }
   }
-  return <>{children}</>;
 }

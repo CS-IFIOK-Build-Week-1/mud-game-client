@@ -1,21 +1,15 @@
 import React, { useRef } from "react";
 import { Stage, Container } from "react-pixi-fiber";
 import TileMap from "./TileMap";
-import Room from "./Room";
 import Player from "./Player";
 
-export default function game({ rooms }) {
+export default function game({ rooms, currentRoomData, dispatch }) {
   return (
     <>
-      <Stage options={{ backgroundColor: 0x10bb99, height: 600, width: 800 }}>
+      <Stage options={{ backgroundColor: 0x10bb99, height: 480, width: 576 }}>
         <Container>
-          <TileMap
-            rooms={[
-              { n_to: 0, e_to: 1, w_to: 0, s_to: 1 },
-              { n_to: 0, e_to: 0, w_to: 1, s_to: 1 },
-            ]}
-          />
-          <Player scale={2} x={64}/>
+          <TileMap rooms={rooms} {...currentRoomData} dispatch={dispatch} />
+          <Player scale={2} x={-16 + 96 * 3} y={32 + 96 * 2} />
         </Container>
       </Stage>
     </>
