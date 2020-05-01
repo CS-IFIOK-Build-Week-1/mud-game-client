@@ -1,8 +1,8 @@
 import React, { useEffect, useRef } from "react";
 import { ParticleContainer, withApp } from "react-pixi-fiber";
 import Room from "./Room";
-import { useDispatch } from "react-redux";
 import { axiosWithAuth } from "../../utilities/axiosWithAuth";
+import tween from "./tween";
 
 const axios = axiosWithAuth();
 const url = "https://calm-headland-63030.herokuapp.com/api/adv/move";
@@ -46,19 +46,47 @@ function TileMap({ app, rooms, x, y, dispatch }) {
           // Directions inverted cause we are moving the map and not the  player
           switch (keyCode) {
             case 37:
-              container.current.x = container.current.x + delta;
+              tween({
+                from: container.current.x,
+                to: container.current.x + delta,
+                duration: 300,
+                onUpdate: (v) => {
+                  container.current.x = v;
+                },
+              });
               current_room = rooms[current_room.x - 1][current_room.y];
               break;
             case 38:
-              container.current.y = container.current.y + delta;
+              tween({
+                from: container.current.y,
+                to: container.current.y + delta,
+                duration: 300,
+                onUpdate: (v) => {
+                  container.current.y = v;
+                },
+              });
               current_room = rooms[current_room.x][current_room.y - 1];
               break;
             case 39:
-              container.current.x = container.current.x - delta;
+              tween({
+                from: container.current.x,
+                to: container.current.x - delta,
+                duration: 300,
+                onUpdate: (v) => {
+                  container.current.x = v;
+                },
+              });
               current_room = rooms[current_room.x + 1][current_room.y];
               break;
             case 40:
-              container.current.y = container.current.y - delta;
+              tween({
+                from: container.current.y,
+                to: container.current.y - delta,
+                duration: 300,
+                onUpdate: (v) => {
+                  container.current.y = v;
+                },
+              });
               current_room = rooms[current_room.x][current_room.y + 1];
               break;
             default:
